@@ -75,7 +75,7 @@ func getListenAddress() string {
 
 // getConfigDir get the configuration dir
 func getConfigDir() string {
-	configDirs := configdir.New("axlabs", "go-jsonrpc-proxy")
+	configDirs := configdir.New("bpx-chain", "jsonrpc-proxy")
 	folders := configDirs.QueryFolders(configdir.Global)
 	err := folders[0].MkdirAll()
 	if err != nil {
