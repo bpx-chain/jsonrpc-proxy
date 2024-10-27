@@ -1,4 +1,4 @@
-module github.com/AxLabs/go-jsonrpc-proxy
+module github.com/bpx-chain/jsonrpc-proxy
 
 go 1.13
 

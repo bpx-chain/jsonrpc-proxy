@@ -1,17 +1,17 @@
-ORG_NAME := AxLabs
-REPO_NAME := go-jsonrpc-proxy
+ORG_NAME := bpx-chain
+REPO_NAME := jsonrpc-proxy
 PKG_ROOT := github.com/${ORG_NAME}/$(REPO_NAME)
 PKG_LIST := go list ${PKG_ROOT}/...
 PKG_GO_JSONRPC_PROXY := ${PKG_ROOT}/cmd
 CMD_DIR := ./cmd
 
-.PHONY: all lint vet test go-jsonrpc-proxy
+.PHONY: all lint vet test jsonrpc-proxy
 
 .EXPORT_ALL_VARIABLES:
 
 GO111MODULE=on
 
-all: lint vet test go-jsonrpc-proxy
+all: lint vet test jsonrpc-proxy
 
 vet:
 	@go vet $(shell $(PKG_LIST))
@@ -24,12 +24,12 @@ lint:
 test:
 	@go test -v -short -count=1 $(shell $(PKG_LIST))
 
-go-jsonrpc-proxy: $(CMD_DIR)/go-jsonrpc-proxy
+jsonrpc-proxy: $(CMD_DIR)/jsonrpc-proxy
 
-$(CMD_DIR)/go-jsonrpc-proxy:
+$(CMD_DIR)/jsonrpc-proxy:
 	@echo "Building $@..."
-	@go build -i -o $(CMD_DIR)/go-jsonrpc-proxy -v $(PKG_GO_JSONRPC_PROXY)
-	@chmod u+x $(CMD_DIR)/go-jsonrpc-proxy
+	@go build -i -o $(CMD_DIR)/jsonrpc-proxy -v $(PKG_GO_JSONRPC_PROXY)
+	@chmod u+x $(CMD_DIR)/jsonrpc-proxy
 
 clean:
-	@rm -df $(CMD_DIR)/go-jsonrpc-proxy
+	@rm -df $(CMD_DIR)/jsonrpc-proxy

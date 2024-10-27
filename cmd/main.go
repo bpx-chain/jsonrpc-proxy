@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/AxLabs/go-jsonrpc-proxy/config"
-	"github.com/AxLabs/go-jsonrpc-proxy/server"
+	"github.com/bpx-chain/jsonrpc-proxy/config"
+	"github.com/bpx-chain/jsonrpc-proxy/server"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
@@ -75,7 +75,7 @@ func getListenAddress() string {
 
 // getConfigDir get the configuration dir
 func getConfigDir() string {
-	configDirs := configdir.New("axlabs", "go-jsonrpc-proxy")
+	configDirs := configdir.New("bpx-chain", "jsonrpc-proxy")
 	folders := configDirs.QueryFolders(configdir.Global)
 	err := folders[0].MkdirAll()
 	if err != nil {
